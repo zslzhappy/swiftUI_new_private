@@ -35,6 +35,7 @@ enum RepositoryAPI {
         return sendRequest(request)
             .decode(type: ItemResponse<Repository>.self, decoder: decoder)
             .map { Result<[Repository], ErrorResponse>.success($0.items) }
+      
             .catch { error -> SearchResponse in
                 guard case let .serverErrorMessage(_, data)? = error as? URLSessionError else {
                     return .just(.success([]))
@@ -46,6 +47,7 @@ enum RepositoryAPI {
                     return .just(.success([]))
                 }
             }
+      
             .eraseToAnyPublisher()
     }
 }

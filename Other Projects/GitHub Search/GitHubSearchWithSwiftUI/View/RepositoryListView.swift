@@ -17,23 +17,23 @@ struct RepositoryListView : View {
 
         NavigationView {
 
-            VStack {
+          VStack {
             HStack {
-
-                TextField("Search repositories...", text: $viewModel.text,
-                          onCommit: { self.viewModel.search() })
-                    .frame(height: 40)
-                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
-                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                    .background(RoundedRectangle(cornerRadius: 8).strokeBorder(Color.gray, lineWidth: 2))
-
-                Button(action: { self.viewModel.search() }) {
-                    Text("Search")
-                }
-                .frame(height: 40)
-                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
-                .background(RoundedRectangle(cornerRadius: 8).strokeBorder(Color.blue, lineWidth: 2))
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
+              
+              TextField("Search repositories...", text: $viewModel.text,
+                        onCommit: { self.viewModel.search() })
+              .frame(height: 40)
+              .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+              .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+              .background(RoundedRectangle(cornerRadius: 8).strokeBorder(Color.gray, lineWidth: 2))
+              
+              Button(action: { self.viewModel.search() }) {
+                Text("Search")
+              }
+              .frame(height: 40)
+              .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+              .background(RoundedRectangle(cornerRadius: 8).strokeBorder(Color.blue, lineWidth: 2))
+              .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
             }
 
             List {
@@ -57,4 +57,11 @@ struct RepositoryListView : View {
             .navigationBarTitle(Text("Search🔍"))
         }
     }
+}
+struct CircleImagePreviews: PreviewProvider {
+  static var previews: some View {
+    RepositoryListView(viewModel: RepositoryListViewModel(mainScheduler: DispatchQueue.main))
+    
+  }
+  
 }

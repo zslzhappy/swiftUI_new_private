@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: RepositoryListView(viewModel: RepositoryListViewModel(mainScheduler: DispatchQueue.main)))
+          
             self.window = window
             window.makeKeyAndVisible()
         }
@@ -57,5 +58,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+}
+protocol AA{}
+struct A<T:UIView,U:UIView> :PageModelProtocal{
+  
+  
+  
+}
+protocol PageModelProtocal{
+//  init(a:Int)
 }
 

@@ -11,6 +11,8 @@ import Foundation
 import SwiftUI
 
 final class RepositoryListViewModel: ObservableObject {
+//  final class RepositoryListViewModel{
+
     typealias SearchRepositories = (String) -> AnyPublisher<Result<[Repository], ErrorResponse>, Never>
 
     let objectWillChange: AnyPublisher<RepositoryListViewModel, Never>
